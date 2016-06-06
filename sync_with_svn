@@ -1,0 +1,14 @@
+#! /bin/bash
+
+date
+echo "Syncing with Transmission Subversion..."
+
+git svn fetch --log-window-size=200
+
+if [ $? -eq 0 ]; then
+  echo "Pushing master branch to GitHub..."
+  git push github master 
+else
+  echo "Failed to fetch new revisions."
+fi
+date
